@@ -1,0 +1,144 @@
+{
+  u
+  'kind': u
+  'customsearch#search',
+  u
+  'url': {
+    u
+    'type': u
+    'application/json',
+    u
+    'template': u
+    'https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&cref={cref?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json'
+  },
+  u
+  'items': [
+    {
+      'kind': 'customsearch#result',
+      'title': 'Lecture - Wikipedia, the free encyclopedia',
+      'displayLink':'en.wikipedia.org',
+      'htmlTitle': '<b>Lecture</b> - Wikipedia, the free encyclopedia',
+      'formattedUrl': 'https://en.wikipedia.org/wiki/Lecture',
+      'htmlFormattedUrl':'https://en.wikipedia.org/wiki/<b>Lecture</b>',
+     'pagemap': {
+        u
+        'metatags': [
+          {
+            u
+            'referrer': u
+            'origin-when-cross-origin'
+          }
+        ],
+        u
+        'cse_thumbnail': [
+          {
+            u
+            'width': u
+            '232',
+            u
+            'src': u
+            'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTgj2L20IIrcoBt5WMgaPc0CQntdKrAlhAnRUWb546z_sQoLVfhl4lPOFlE',
+            u
+            'height': u
+            '154'
+          }
+        ],
+        u
+        'cse_image': [
+          {
+            u
+            'src': u
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/ADFA_Lecture_Theatres.jpg/290px-ADFA_Lecture_Theatres.jpg'
+          }
+        ]
+      },
+      'snippet':  'A lecture is an oral presentation intended to present information or teach people \nabout a particular subject, for example by a university or college teacher.',
+      'htmlSnippet': 'A <b>lecture</b> is an oral presentation intended to present information or teach people <br>\nabout a particular subject, for example by a university or college teacher.',
+      'link':'https://en.wikipedia.org/wiki/Lecture',
+       'cacheId': 'd9Pjta02fmgJ'
+    }
+  ],
+  u
+  'context': {
+    u
+    'title': u
+    'Localhost:8888'
+  },
+  u
+  'queries': {
+    u
+    'request': [
+      {
+        u
+        'count': 10,
+        u
+        'outputEncoding': u
+        'utf8',
+        u
+        'title': u
+        'Google Custom Search - lecture',
+        u
+        'safe': u
+        'off',
+        u
+        'searchTerms': u
+        'lecture',
+        u
+        'startIndex': 1,
+        u
+        'cx': u
+        '005175589950435320673:pjhig1ltsts',
+        u
+        'inputEncoding': u
+        'utf8',
+        u
+        'totalResults': u
+        '35500000'
+      }
+    ],
+    u
+    'nextPage': [
+      {
+        u
+        'count': 10,
+        u
+        'outputEncoding': u
+        'utf8',
+        u
+        'title': u
+        'Google Custom Search - lecture',
+        u
+        'safe': u
+        'off',
+        u
+        'searchTerms': u
+        'lecture',
+        u
+        'startIndex': 11,
+        u
+        'cx': u
+        '005175589950435320673:pjhig1ltsts',
+        u
+        'inputEncoding': u
+        'utf8',
+        u
+        'totalResults': u
+        '35500000'
+      }
+    ]
+  },
+  u
+  'searchInformation': {
+    u
+    'formattedSearchTime': u
+    '0.33',
+    u
+    'formattedTotalResults': u
+    '35,500,000',
+    u
+    'totalResults': u
+    '35500000',
+    u
+    'searchTime': 0.326768
+  }
+}

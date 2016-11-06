@@ -1,0 +1,16 @@
+{
+  "responseData": {
+    "results": [
+      {
+        "GsearchResultClass": "GwebSearch",
+        "unescapedUrl": "http://www.speedtest.net/",
+        "url": "http://www.speedtest.net/",
+        "visibleUrl": "www.speedtest.net",
+        "cacheUrl": "http://www.google.com/search?q\u003dcache:M47_v0xF3m8J:www.speedtest.net",
+        "title": "Speedtest.net by Ookla - The Global Broadband Speed \u003cb\u003eTest\u003c/b\u003e",
+        "titleNoFormatting": "Speedtest.net by Ookla - The Global Broadband Speed Test",
+        "content": "\u003cb\u003eTest\u003c/b\u003e your Internet connection bandwidth to locations around the world with this \ninteractive broadband speed \u003cb\u003etest\u003c/b\u003e from Ookla."
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+[
+  {
+    'kind': 'cstomsearch#result',
+    'title':'Lecture - Wikipedia, the free encyclopedia',
+
+    'displayLink': 'en.wikipedia.org',
+
+    'htmlTitle': '<b>Lecture</b> - Wikipedia, the free encyclopedia',
+
+    'formattedUrl': 'https://en.wikipedia.org/wiki/Lecture',
+
+    'htmlFormattedUrl': 'https://en.wikipedia.org/wiki/<b>Lecture</b>',
+
+    'pagemap': {
+
+      'metatags': [
+        {
+
+          'referrer': 'origin-when-cross-origin'
+        }
+      ],
+
+      'cse_thumbnail': [
+        {
+
+          'width': '232',
+
+          'src':  'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTgj2L20IIrcoBt5WMgaPc0CQntdKrAlhAnRUWb546z_sQoLVfhl4lPOFlE',
+
+          'height': '154'
+        }
+      ],
+
+      'cse_image': [
+        {
+
+          'src':  'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/ADFA_Lecture_Theatres.jpg/290px-ADFA_Lecture_Theatres.jpg'
+        }
+      ]
+    },
+
+    'snippet': 'A lecture is an oral presentation intended to present information or teach people \nabout a particular subject, for example by a university or college teacher.',
+
+    'htmlSnippet': 'A <b>lecture</b> is an oral presentation intended to present information or teach people <br>\nabout a particular subject, for example by a university or college teacher.',
+
+    'link': 'https://en.wikipedia.org/wiki/Lecture',
+
+    'cacheId': 'd9Pjta02fmgJ'
+  }]

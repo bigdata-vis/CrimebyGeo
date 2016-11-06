@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="www/css/bootstrap/bootstrap.min.css" type="text/css" rel="stylesheet" />
+<style>
+    body {
+        margin: 0;
+    }
+
+    #container {
+        position: relative;
+        overflow: hidden;
+        background: #ddd;
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+    }
+
+    #points {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 100;
+    }
+
+    #panelContainer{
+        position: fixed;
+        /*position: relative;*/
+        overflow: hidden;
+        /*background: green;*/
+        top: 10px;
+        left: 10px;
+        z-index: 999;
+        width: 380px;
+        height: 230px;
+    }
+
+    .layer {
+        position: absolute;
+    }
+
+    .tile {
+        pointer-events: none;
+        position: absolute;
+        width: 256px;
+        height: 256px;
+    }
+
+    .coffee {
+        opacity: 0.8;
+        fill: #ff2200;
+    }
+
+    .coffee:hover {
+        opacity: 1.0;
+        fill: #ff8a00;
+    }
+
+    .d3-tip {
+        line-height: 1.5;
+        font-weight: normal;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        border-radius: 3px;
+        position: relative;
+        z-index: 101;
+    }
+
+    /* Creates a small triangle extender for the tooltip */
+    .d3-tip:after {
+        box-sizing: border-box;
+        display: inline;
+        font-size: 20px;
+        width: 100%;
+        line-height: .5;
+        color: rgba(0, 0, 0, 0.8);
+        content: "\25BC";
+        position: absolute;
+        text-align: center;
+    }
+
+    /* Style northward tooltips differently */
+    .d3-tip.n:after {
+        margin: -1px 0 0 0;
+        top: 100%;
+        left: 0;
+    }
+
+    /*.axis{*/
+        /*fill: white;*/
+    /*}*/
+    .axis text {
+        font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #444444;
+        shape-rendering: crispEdges;
+    }
+    .clickable{
+        cursor: pointer;
+    }
+
+    .panel-heading span {
+        margin-top: -20px;
+        font-size: 15px;
+    }
+
+    /*brush styling*/
+
+    #brushSlider{
+        position: fixed;
+        /*position: relative;*/
+        overflow: hidden;
+        /*background: green;*/
+        top: 74%;
+        /*left: 10px;*/
+        z-index: 999;
+        /*width: 380px;*/
+        /*height: 230px;*/
+        /*background-color: #bce8f1;*/
+        opacity: 1.6;
+    }
+
+    .dots {
+        fill-opacity: .2;
+    }
+
+    .dots .selected {
+        fill: red;
+        stroke: brown;
+    }
+
+    .brush .extent {
+        fill-opacity: .125;
+        shape-rendering: crispEdges;
+    }
+
+    .resize {
+        display: inline !important; /* show when empty */
+        fill: #666;
+        fill-opacity: .8;
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
+
+<script src="script/d3.geo.tile.min.js"></script>
+<script src="/www/lib/jquery.min.js"></script>
+<script src="/www/lib/bootstrap.min.js"></script>
+<script src="script/d3.tip.js"></script>
+<script src="script/map-zoom.js"></script>
+<script src="script/sam.module.js"></script>
+
+</body>
