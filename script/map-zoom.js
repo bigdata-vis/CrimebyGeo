@@ -9,17 +9,22 @@ var margin = {top: 10, right: 10, bottom: 10, left: 10};
 //    });
 
 // data entry
-d3.json("http://localhost:5000/api/v1/crime_data", function (error, datadots) {
+d3.json("http://localhost:5000/api/v1/crime_data", function (error, data) {
     if (error) throw error;
 
+    //console.log(data.meta)
+
+    //monthly status nodes
+    sam.vis().monthlyStatusBar(data.meta);
+
     //create screen dots
-    createDots(datadots);
+    createDots(data.data);
 
     //draw bottom scale
-    //sam.vis().monthScale(axisscale,width,height);
+    sam.vis().monthScale(axisscale, width, height, data.meta);
 
     //new brush scale
-    sam.vis().brushxAxis(points, width);
+    //sam.vis().brushxAxis(points, width);
 
     //open and close panel
     sam.vis().closePanel();
@@ -65,7 +70,7 @@ var layer = map.append("div")
 
 var axisscale = points;
 
-var sliderDiv = d3.select("body").append("div").attr("id", "brushSlider");
+//var sliderDiv = d3.select("body").append("div").attr("id", "brushSlider");
 
 var tip = d3.tip()
     .attr('class', 'd3-tip')
@@ -80,10 +85,11 @@ points.call(tip);
 zoomed();
 
 function createDots(data) {
-    //d3.select('#points').selectAll("circle")
+
     d3.select('#points').selectAll(".screen_dots")
         .data(data)
         .enter()
+        //.append("circle")
         .append("circle")
         .attr("class", "screen_dots")
         .attr("r", 0.5)
@@ -97,16 +103,18 @@ function createDots(data) {
         //    return "translate(" + projection([d.long, d.latitude]) + ")";
         //})
         .attr("fill", "red")
+        .attr("fill-opacity", function (d) {
+            return d.uncert
+        })
+
         //.attr("fill", "#002240")
         .on('mouseover', tip.show)
-        //.on('click', function (d) {
-        //    legendPanel(d)
-        //})
 
         //use bootstrap panel component
         .on('click', function (d) {
             //remove old panel
             sam.vis().removePanel();
+
 
             //create panel
             bootPanel(d)
@@ -252,7 +260,16 @@ function bootPanel(d) {
         "<span class='pull-right clickable'><i class='glyphicon glyphicon-chevron-up'></i></span>" +
         "</div>" +
         "<div class='panel-body'>" +
-        d.date + "<br>" + d.outcome + "<br>" + d.reported_by +
+        d.date + "<br>" +"Outcome: "+ d.outcome + "<br>" + "Reported By: " + d.reported_by +
         "</div>" +
         "</div>");
+}
+
+function uncertGauge(d) {
+    console.log(d);
+    if (d > 0.5) {
+        return "High"
+    } else {
+        return "Low"
+    }
 }

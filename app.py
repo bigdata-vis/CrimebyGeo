@@ -15,11 +15,10 @@ def display_crimedata():
     data_export = crimerates2.cleaned_data
     return jsonify(data_export)
 
-@app.route('/api/v1/geo_json')
+@app.route('/api/v1/crime_data/meta')
 def accept_calls():
-    data = convert_geojson
-    x = []
-    return x
+    data_export = crimerates2.crime_rates_numbers
+    return jsonify(data_export)
 
 if __name__ == '__main__':
     # app.run(host='127.0.0.1', port=8087)

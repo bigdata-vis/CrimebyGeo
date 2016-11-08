@@ -1,14 +1,28 @@
+import random
+import json
 from datetime import datetime
+from collections import namedtuple
+
 f = open("data/crimedata.csv", "r")
 data = f.read()
 
-
+# crime count function
+def count_types(nth, data_list):
+    count_obj = {}
+    for item in data_list:
+        if item[nth] in count_obj:
+            count_obj[item[nth]] = count_obj[item[nth]] + 1
+        else:
+            count_obj[item[nth]] = 1
+    return count_obj
 
 def data_clean_func(d):
-    crime_counts = {}
     new_list = []
     crime_with_location = []
     no_location_list = []
+    crime_type_list = []
+    crime_counts = {}
+
 
     rows = d.split("\n")
     last_value = len(rows) - 1
@@ -26,6 +40,16 @@ def data_clean_func(d):
         crime_outcome = rows_split[10]
         crime_date = rows_split[1]
 
+        # Uncertainty Setting
+        # set uncertainty to < 0.5 if crime_outcome == ""
+        if crime_outcome == '':
+            rand_num = float(random.uniform(0.1, 0.3))
+        else:
+            rand_num = float(random.uniform(0.5, 1.0))
+
+        # set uncertainty value
+        uncert_val = float(format(rand_num, '.1f'))
+
         # only float identified numbers
         if crime_long != '':
             crime_long = float(crime_long)
@@ -35,17 +59,24 @@ def data_clean_func(d):
         else:
             no_location_list.append([item])
 
-        crime = {'date': crime_date, 'reported_by': crime_report_by, 'long': crime_long, 'latitude': crime_lat, 'type': crime_type, 'outcome': crime_outcome}
 
+        crime = {'date': crime_date, 'reported_by': crime_report_by, 'long': crime_long, 'latitude': crime_lat,
+                 'type': crime_type, 'outcome': crime_outcome, 'uncert': uncert_val}
         new_list.append(crime)
 
-    return new_list
+    #crime count start
+        crime2 = [crime_date, crime_report_by, crime_long, crime_lat, crime_type, crime_outcome]
+        crime_type_list.append(crime2)
+    type_data = count_types(4, crime_type_list)
+    #crime count end
+
+    return {"data": new_list, "meta": type_data}
+
 cleaned_data = data_clean_func(data)
 
-# print(len(cleaned_data))
 
+#convert to list
 # print(cleaned_data)
-
 
 # data cleaning to check for empty spaces, own
 # data sanitisation

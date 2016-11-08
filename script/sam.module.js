@@ -83,7 +83,7 @@ sam.vis = function module() {
             //.selectAll("circle")
             .selectAll(".slider_dots")
             .data(data)
-            .enter().append("circle").attr("class","slider_dots")
+            .enter().append("circle").attr("class", "slider_dots")
             .attr("transform", function (d) {
                 return "translate(" + x(d) + "," + y() + ")";
             })
@@ -166,11 +166,11 @@ sam.vis = function module() {
         }
     };
 
-    exports.snappingBrush = function(svg, newwidth, newheight){
+    exports.snappingBrush = function (svg, newwidth, newheight) {
 
     };
 
-    exports.monthScale = function (svg, newwidth, newheight) {
+    exports.monthScale = function (svg, newwidth, newheight, d) {
         width = newwidth - margin.left - margin.right;
         height = newheight - margin.top - margin.bottom;
 
@@ -216,6 +216,59 @@ sam.vis = function module() {
             .attr("x", 6)
             .attr("y", 6)
             .attr("fill", "white");
+
+        //month section
+        bottomScale.append("text")
+            .attr("x", width - (margin.right + 800))
+            .attr("y", height + margin.top + margin.bottom - 90)
+            .attr("fill", "white")
+            .attr("class", "axis")
+            .text(function () {
+                console.log(d);
+                var title = Object.keys(d);
+                var vals = Object.keys(d).map(function (key) {
+                    return d[key];
+                });
+
+                return title[0] + ": " + vals[0] + ", " +
+                    title[4] + ": " + vals[4] + ", " + title[2] + ": " + vals[2] + ", " + title[3] + ": " + vals[3] + ", " + title[13] + ": " + vals[13]
+            });
+    };
+
+    exports.monthlyStatusBar = function (d) {
+
+        d3.select('#points').selectAll(".monthBoxes")
+            .data(d)
+            .enter()
+            .append("rect")
+            .attr("class", "monthBoxes")
+            .attr("width", 100)
+            .attr("height", 100)
+            .attr("fill", "red")
+            .attr("x", 0)
+            .attr("y", 0);
+
+        //d3.select("body").append("div").attr("id", "monthStatus").classed("div_container");
+        //    d3.select("#monthStatus").selectAll(".monthBox")
+        //    .data(d)
+        //    .enter()
+        //    .append("div")
+        //    .attr("class", "monthBox")
+        //    .attr("fill", "green")
+        //    //.attr("cx", function(){
+        //    //    var m  = 10;
+        //    //    return m =+ 10
+        //    //});
+        //    .style("margin-left", function(){
+        //        var m  = 10;
+        //        return m =+ 10
+        //    })
+        //    .html("<ul class='list-group'>" +
+        //    "<li class='list-group-item'>" +
+        //    "<span class='badge'>" + d + "</span>" +
+        //    d +
+        //    "</li>" +
+        //    "</ul>")
     };
 
     return exports
